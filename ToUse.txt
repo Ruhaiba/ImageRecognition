@@ -1,0 +1,18 @@
+import cv2 # --> pip install opencv-python
+import matplotlib.pyplot as plt #--> pip install matplotlib
+import numpy as np #--> pip install numpy
+from tensorflow.keras.models import load_model --> pip install tensorflow
+model = load_model("animals.h5")
+img=cv2.imread("car.png")
+img=cv2.resize(img, (32,32))
+img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
+img=img/255.0
+plt.imshow(img)
+plt.axis("off")
+plt.show()
+img=np.expand_dims(img, axis=0)
+predict=model.predict(img)
+predict_class=np.argmax(predict)
+class_names = ["Airplane", "Automobile", "Bird", "Cat", "Deer", 
+               "Dog", "Frog", "Horse", "Ship", "Truck"]
+print("Predicted Class:", class_names[predict_class])

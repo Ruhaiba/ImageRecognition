@@ -1,7 +1,7 @@
 import cv2 # --> pip install opencv-python
 import matplotlib.pyplot as plt #--> pip install matplotlib
 import numpy as np #--> pip install numpy
-from tensorflow.keras.models import load_model --> pip install tensorflow
+from tensorflow.keras.models import load_model #--> pip install tensorflow
 model = load_model("animals.h5")
 img=cv2.imread("car.png")
 img=cv2.resize(img, (32,32))
